@@ -20,7 +20,7 @@ public class TaskController {
 	
 	@GetMapping("/")
 	public String showList(Model model) {
-		model.addAttribute("user", userRepository.findAll());
+		model.addAttribute("users", userRepository.findAll());
 		return "index";
 	}
 	

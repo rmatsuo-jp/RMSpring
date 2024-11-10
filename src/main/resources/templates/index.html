@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8" th:remove="tag">
 </head>
+
 <body>
 	<div layout:fragment="content">
 		<main class="offcanvas-outside bg-body-tertiary">
@@ -20,11 +21,11 @@
 							</div>
 							
 							<div class="card-body">
-								<div th:if="${user.size() == 0}">
+								<div th:if="${users.size() == 0}">
 									該当データがありません
 								</div>
 								
-								<table th:if="${user.size() > 0}" class="table table-bordered">
+								<table th:if="${users.size() > 0}" class="table table-bordered">
 									<thead>
 										<tr>
 											<th>#</th>
@@ -35,10 +36,10 @@
 									</thead>
 									<tbody>
 										<!--user と usersの区別をしていない-->
-										<tr th:each="user:${user}" th:object="${user}">
+										<tr th:each="user:${users}" th:object="${user}">
 											<td th:text="*{id}"></td>
 											<td th:text="*{name}"></td>
-											<td th:text="*{department.name}"></td>
+											<!--td th:text="*{department.name}"></td-->
 											<td>
 												<a th:href="@{/edit/{id}(id=*{id})}" 
 													class="btn btn-navy">

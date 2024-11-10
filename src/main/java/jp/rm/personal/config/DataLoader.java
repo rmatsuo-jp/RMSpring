@@ -5,7 +5,9 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 import jp.rm.personal.model.Department;
+import jp.rm.personal.model.User;
 import jp.rm.personal.repository.DepartmentRepository;
+import jp.rm.personal.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
@@ -13,17 +15,18 @@ import lombok.RequiredArgsConstructor;
 public class DataLoader implements ApplicationRunner {
 	
 	private final DepartmentRepository departmentRepository;
+	private final UserRepository userRepository;
 	
 	@Override
 	public void run(ApplicationArguments args) throws Exception{
 		
 		var sales = new Department();
-		sales.setName("営業");
+		sales.setName("aSale");
 		departmentRepository.save(sales);
 		
-		var development = new Department();
-		development.setName("開発");
-		departmentRepository.save(development);
+		var testUser = new User();
+		testUser.setName("aTest");
+		userRepository.save(testUser);
 	}
 	
 }

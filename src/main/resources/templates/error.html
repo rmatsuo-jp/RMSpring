@@ -4,7 +4,6 @@
 	layout:decorate="~{layout/layout}">
 <head>
 <meta charset="UTF-8" th:remove="tag">
-<title>Insert title here</title>
 </head>
 <body>
 	
@@ -17,7 +16,7 @@
 				
 				<div class="row mh-100 align-items-center justify-content-center">
 					<div class="text-center">
-						<div class="display-1" th:text="{$status}"></div>
+						<div class="display-1" th:text="${status}"></div>
 						<div class="text-body-secondary mb-4" th:text="${error}"></div>
 						
 						<div class="text-body-secondary">ページを表示できません</div>
