@@ -28,26 +28,33 @@
 								<table th:if="${tasklist.size() > 0}" class="table table-bordered">
 									<thead>
 										<tr>
-											<th>id</th>
-											<th>名前</th>
+											<th><label for="id" th:text="#{id}"></label></th>
+											<th><label for="taskName" th:text="#{taskName}"></label></th>
+											<th><label for="isFinished" th:text="#{isFinished}"></label></th>
+											<th><label for="startDate" th:text="#{startDate}"></label></th>
+											<th><label for="endDate" th:text="#{endDate}"></label></th>
+											
 											<th></th>
 										</tr>
 									</thead>
+									
 									<tbody>
 										<tr th:each="task : ${tasklist}" th:object="${task}">
 											<td th:text="*{id}"></td>
-											<td th:text="*{name}"></td>
+											<td th:text="*{taskName}"></td>
+											<td th:text="*{isFinished}"></td>
+											<td th:text="*{startDate}"></td>
+											<td th:text="*{endDate}"></td>
+											
 											<td>
-												<a th:href="@{/edit/{id}(id=*{id})}" 
-													class="btn btn-navy">
+												<a th:href="@{/edit/{id}(id=*{id})}" class="btn btn-navy">
 													<i class="bi bi-pencil-square"></i>
-													編集
+													<label for="edit" th:text="#{edit}"></label>
 												</a>
 												
-												<a th:href="@{/delete/{id}(id=*{id})}"
-													class="btn btn-danger">
+												<a th:href="@{/delete/{id}(id=*{id})}" class="btn btn-danger">
 													<i class="bi bi-trash-fill"></i>
-													削除
+													<label for="delete" th:text="#{delete}"></label>
 												</a>
 											</td>
 										</tr>

@@ -1,5 +1,7 @@
 package jp.rm.personal.config;
 
+import java.time.LocalDate;
+
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
@@ -17,7 +19,10 @@ public class DataLoader implements ApplicationRunner {
 	@Override
 	public void run(ApplicationArguments args) throws Exception{
 		var task = new Task();
-		task.setName("task");
+		task.setTaskName("taskA");
+		task.setIsFinished(false);
+		task.setStartDate(LocalDate.of(1900, 1, 1));
+		task.setEndDate(LocalDate.of(1900, 12, 31));
 		taskRepository.save(task);
 	}
 }
