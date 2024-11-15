@@ -8,54 +8,46 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import jp.rm.personal.model.User;
-import jp.rm.personal.repository.UserRepository;
+import jp.rm.personal.model.Task;
+import jp.rm.personal.repository.TaskRepository;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Controller
 public class TaskController {
-	
-	private final UserRepository userRepository;
+	private final TaskRepository taskRepository;
 	
 	@GetMapping("/")
 	public String showList(Model model) {
-		model.addAttribute("users", userRepository.findAll());
+		model.addAttribute("tasklist", taskRepository.findAll());
 		return "index";
 	}
 	
 	@GetMapping("/add")
-	public String addUser(User user) {
-		
+	public String addTask(Task task) {
 		return "form";
 	}
 	
 	@PostMapping("/process")
-	public String process(@Validated User user, BindingResult result) {
+	public String process(@Validated Task task, BindingResult result) {
 		
 		if(result.hasErrors()) {
-			
 			return "form";
 		}
 		
-		userRepository.save(user);
-		
+		taskRepository.save(task);
 		return "redirect:/";
 	}
 	
 	@GetMapping("/edit/{id}")
-	public String editUser(@PathVariable Long id, Model model) {
-		
-		model.addAttribute("user", userRepository.findById(id));
+	public String editTask(@PathVariable Long id, Model model) {
+		model.addAttribute("task", taskRepository.findById(id));
 		return "form";
 	}
 	
 	@GetMapping("/delete/{id}")
-	public String deleteUser(@PathVariable Long id) {
-		
-		userRepository.deleteById(id);
+	public String deleteTask(@PathVariable Long id) {
+		taskRepository.deleteById(id);
 		return "redirect:/";
 	}
 }
-
-

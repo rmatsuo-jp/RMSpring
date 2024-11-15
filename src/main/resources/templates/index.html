@@ -17,29 +17,26 @@
 					<div class="col">
 						<div class="card shadow">
 							<div class="card-header">
-								<h6 class="text-navy my-2">社員一覧</h6>
+								<h6 class="text-navy my-2">タスク一覧</h6>
 							</div>
 							
 							<div class="card-body">
-								<div th:if="${users.size() == 0}">
+								<div th:if="${tasklist.size() == 0}">
 									該当データがありません
 								</div>
 								
-								<table th:if="${users.size() > 0}" class="table table-bordered">
+								<table th:if="${tasklist.size() > 0}" class="table table-bordered">
 									<thead>
 										<tr>
-											<th>#</th>
+											<th>id</th>
 											<th>名前</th>
-											<th>部署名</th>
 											<th></th>
 										</tr>
 									</thead>
 									<tbody>
-										<!--user と usersの区別をしていない-->
-										<tr th:each="user:${users}" th:object="${user}">
+										<tr th:each="task : ${tasklist}" th:object="${task}">
 											<td th:text="*{id}"></td>
 											<td th:text="*{name}"></td>
-											<!--td th:text="*{department.name}"></td-->
 											<td>
 												<a th:href="@{/edit/{id}(id=*{id})}" 
 													class="btn btn-navy">

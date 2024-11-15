@@ -1,25 +1,25 @@
 .bg-image{
 	background:
 		linear-gradient(to bottom,
-			rgba(34, 74, 190, 1)
-			rgba(34, 74, 190, 0.7)
+			rgb(128, 255, 255)
+			rgb(255, 255, 128)
 			),
 			url('/images/photo.jpg');
 			background-size:cover;
 }
 
 .text-navy{
-	color:#224abe;
+	color:rgb(255, 128, 192);
 }
 
 .btn-navy{
 	color:white;
-	background-color:#224abe;
+	background-color:rgb(0, 255, 0);
 }
 
 .btn-navy:hover{
 	color:white;
-	background-color:#0d47a1;
+	background-color:rgb(128, 0, 255);
 }
 
 .offcanvas{
