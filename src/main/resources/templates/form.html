@@ -34,6 +34,16 @@
 										<div class="invalid-feedback" th:errors="*{name}"></div>
 									</div>
 									
+									<div class="mb-3">
+										<label for="startDate" th:text="#{startDate}"></label>
+										<input type="date" class="form-control" th:field="*{startDate}">
+									</div>
+									
+									<div class="mb-3">
+										<label for="endDate" th:text="#{endDate}"></label>
+										<input type="date" class="form-control" th:field="*{endDate}">
+									</div>
+									
 									<hr>
 									<button class="btn btn-navy col-4">
 										<i class="bi bi-pencil-square"></i>

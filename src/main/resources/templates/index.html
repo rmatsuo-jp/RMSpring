@@ -29,7 +29,7 @@
 									<thead>
 										<tr>
 											<th><label for="id" th:text="#{id}"></label></th>
-											<th><label for="taskName" th:text="#{taskName}"></label></th>
+											<th><label for="name" th:text="#{name}"></label></th>
 											<th><label for="isFinished" th:text="#{isFinished}"></label></th>
 											<th><label for="startDate" th:text="#{startDate}"></label></th>
 											<th><label for="endDate" th:text="#{endDate}"></label></th>
@@ -41,7 +41,7 @@
 									<tbody>
 										<tr th:each="task : ${tasklist}" th:object="${task}">
 											<td th:text="*{id}"></td>
-											<td th:text="*{taskName}"></td>
+											<td th:text="*{name}"></td>
 											<td th:text="*{isFinished}"></td>
 											<td th:text="*{startDate}"></td>
 											<td th:text="*{endDate}"></td>
