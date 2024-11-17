@@ -18,9 +18,7 @@
 						<div class="card shadow">
 							
 							<div class="card-header">
-								<h6 class="text-navy my-2">
-									タスク登録
-								</h6>
+								<h6 th:text="#{registTask}" class="text-navy my-2"></h6>
 							</div>
 							
 							<div class="card-body">
@@ -32,6 +30,11 @@
 										<input type="text" class="form-control"
 											th:errorclass="is-invalid" th:field="*{name}">
 										<div class="invalid-feedback" th:errors="*{name}"></div>
+									</div>
+									
+									<div class="mb-3">
+										<label for="isFinished" th:text="#{isFinished}"></label>
+										<input type="checkbox" th:field="*{isFinished}">
 									</div>
 									
 									<div class="mb-3">

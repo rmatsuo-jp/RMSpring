@@ -3,12 +3,12 @@
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorate="~{layout/layout}">
 <head>
-<meta charset="UTF-8" th:remove="tag">
+	<meta charset="UTF-8" th:remove="tag">
 </head>
 
 <body>
 	<div layout:fragment="content">
-		<main class="offcanvas-outside bg-body-tertiary">
+		<main class="offcanvas-outside bg-body-secondary">
 			<div class="container-fluid">
 				<div th:replace="~{fragments/sidebar::toggler}">
 				</div>
@@ -17,18 +17,20 @@
 					<div class="col">
 						<div class="card shadow">
 							<div class="card-header">
-								<h6 class="text-navy my-2">タスク一覧</h6>
+								<h6 th:text="#{showTask}" class="text-navy my-2"></h6>
 							</div>
 							
 							<div class="card-body">
 								<div th:if="${tasklist.size() == 0}">
-									該当データがありません
+									<label th:text="#{noData}"></label>
 								</div>
 								
 								<table th:if="${tasklist.size() > 0}" class="table table-bordered">
 									<thead>
 										<tr>
-											<th><label for="id" th:text="#{id}"></label></th>
+											<th></th>
+											
+											<!--th><label for="id" th:text="#{id}"></label></th-->
 											<th><label for="name" th:text="#{name}"></label></th>
 											<th><label for="isFinished" th:text="#{isFinished}"></label></th>
 											<th><label for="startDate" th:text="#{startDate}"></label></th>
@@ -40,18 +42,20 @@
 									
 									<tbody>
 										<tr th:each="task : ${tasklist}" th:object="${task}">
-											<td th:text="*{id}"></td>
+											<td>
+												<a th:href="@{/edit/{id}(id=*{id})}" class="btn btn-primary">
+													<i class="bi bi-pencil-square"></i>
+													<label for="edit" th:text="#{edit}"></label>
+												</a>
+											</td>
+											
+											<!--td th:text="*{id}"></td-->
 											<td th:text="*{name}"></td>
 											<td th:text="*{isFinished}"></td>
 											<td th:text="*{startDate}"></td>
 											<td th:text="*{endDate}"></td>
 											
 											<td>
-												<a th:href="@{/edit/{id}(id=*{id})}" class="btn btn-navy">
-													<i class="bi bi-pencil-square"></i>
-													<label for="edit" th:text="#{edit}"></label>
-												</a>
-												
 												<a th:href="@{/delete/{id}(id=*{id})}" class="btn btn-danger">
 													<i class="bi bi-trash-fill"></i>
 													<label for="delete" th:text="#{delete}"></label>
