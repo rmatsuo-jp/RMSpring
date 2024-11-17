@@ -14,6 +14,11 @@ import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 import lombok.Data;
 
+/*
+ * @Data : lombokによってgetter, setterなどを生成
+ * @Entity : EntityとしてDIされる
+ */
+
 @Data
 @Entity
 public class Task {
@@ -24,7 +29,7 @@ public class Task {
 	
 	@NotBlank
 	@Size(max = 40)
-	private String taskName;
+	private String name;
 	
 	private Boolean isFinished;
 	

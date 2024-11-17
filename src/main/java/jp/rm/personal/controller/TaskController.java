@@ -12,6 +12,11 @@ import jp.rm.personal.model.Task;
 import jp.rm.personal.repository.TaskRepository;
 import lombok.RequiredArgsConstructor;
 
+/*
+ * @RequiredArgsConstructor : finalフィールドに対してコンストラクタを生成
+ * @Controller : ControllerとしてDIされる
+ */
+
 @RequiredArgsConstructor
 @Controller
 public class TaskController {
