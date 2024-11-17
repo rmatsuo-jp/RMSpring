@@ -12,13 +12,8 @@ import jp.rm.personal.model.Task;
 import jp.rm.personal.repository.TaskRepository;
 import lombok.RequiredArgsConstructor;
 
-/*
- * @RequiredArgsConstructor : finalフィールドに対してコンストラクタを生成
- * @Controller : ControllerとしてDIされる
- */
-
-@RequiredArgsConstructor
-@Controller
+@RequiredArgsConstructor	//finalフィールドに対してコンストラクタを生成
+@Controller	//ControllerとしてDIされる
 public class TaskController {
 	private final TaskRepository taskRepository;
 	
@@ -43,6 +38,10 @@ public class TaskController {
 		taskRepository.save(task);
 		return "redirect:/";
 	}
+	
+	/*
+	 * @PathVariable : パスの値(ここではid)を変数(Long id)に格納
+	 */
 	
 	@GetMapping("/edit/{id}")
 	public String editTask(@PathVariable Long id, Model model) {

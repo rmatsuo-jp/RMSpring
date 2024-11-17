@@ -14,14 +14,14 @@ import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 import lombok.Data;
 
-/*
- * @Data : lombokによってgetter, setterなどを生成
- * @Entity : EntityとしてDIされる
- */
-
-@Data
-@Entity
+@Data	//lombokによってgetter, setterなどを生成
+@Entity	//EntityとしてDIされる
 public class Task {
+	
+	/*
+	 * @GeneratedValue : データベースのid列を用いてキーを自動採番する
+	 * GenerationType.IDENTITY : Webからデータを挿入するときに、データベースとの採番を一致させる
+	 */
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

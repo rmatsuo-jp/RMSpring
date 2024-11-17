@@ -10,15 +10,9 @@ import jp.rm.personal.model.Task;
 import jp.rm.personal.repository.TaskRepository;
 import lombok.RequiredArgsConstructor;
 
-/*
- * @RequiredArgsConstructor : finalフィールドに対してコンストラクタを生成
- * @Component : 一般的な構成要素のひとつとしてDIされる
- * ApplicationRunner : Spring Boot起動時に初期処理としてrunメソッドを実行
- */
-
-@RequiredArgsConstructor
-@Component
-public class DataLoader implements ApplicationRunner {
+@RequiredArgsConstructor	//finalフィールドに対してコンストラクタを生成
+@Component	//一般的な構成要素のひとつとしてDIされる
+public class DataLoader implements ApplicationRunner {	//ApplicationRunner : Spring Boot起動時に初期処理としてrunメソッドを実行
 	
 	private final TaskRepository taskRepository;
 	
