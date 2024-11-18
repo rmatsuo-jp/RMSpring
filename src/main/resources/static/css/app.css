@@ -1,13 +1,3 @@
-.bg-image{
-	background:
-		linear-gradient(to bottom,
-			rgb(128, 255, 255)
-			rgb(255, 255, 128)
-			),
-			url('/images/photo.jpg');
-			background-size:cover;
-}
-
 .text-navy{
 	color:rgb(0, 0, 0);
 }

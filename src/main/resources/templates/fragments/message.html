@@ -24,7 +24,7 @@
 			<div class="display-1" th:text="${status}"></div>
 			<div class="text-body-secondary mb-4" th:text="${error}"></div>
 			
-			<div th:text="errorPage" class="text-body-secondary"></div>
+			<div th:text="#{message.errorPage}" class="text-body-secondary"></div>
 			<a th:href="@{/}" th:text="#{message.toHome}"></a>
 		</div>
 	</div>

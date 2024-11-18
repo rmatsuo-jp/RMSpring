@@ -7,25 +7,16 @@
 </head>
 
 <body>
-	<div layout:fragment="content">
-		<main class="offcanvas-outside bg-body-tertiary vh-100">
-			<div class="container-fluid">
-				
-				<div th:replace="~{fragments/sidebar::toggler}">
-				</div>
-				
-				<div class="row mh-100 align-items-center justify-content-center">
-					<div class="text-center">
-						<div class="display-1" th:text="${status}"></div>
-						<div class="text-body-secondary mb-4" th:text="${error}"></div>
-						
-						<div class="text-body-secondary">ページを表示できません</div>
-						<a th:href="@{/}">&larr; ホームに戻る</a>
-					</div>
-				</div>
-				
+	<div layout:fragment="sidebar" th:replace="~{fragments/sidebar::sidebar}"></div>
+	
+	<main layout:fragment="content" class="offcanvas-outside bg-body-tertiary vh-100">
+		<div class="container-fluid">
+			<div th:replace="~{fragments/sidebar::toggler}"></div>
+			
+			<div class="row mh-100 align-items-center justify-content-center">
+				<div th:replace="~{fragments/message::error}"></div>
 			</div>
-		</main>
-	</div>
+		</div>
+	</main>
 </body>
 </html>
