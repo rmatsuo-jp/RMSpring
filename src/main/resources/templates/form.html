@@ -17,9 +17,8 @@
 				<div class="row">
 					<div class="col">
 						<div class="card shadow">
-							
 							<div class="card-header">
-								<h6 th:text="#{registTask}" class="text-navy my-2"></h6>
+								<h6 th:text="#{general.registTask}" class="text-navy my-2"></h6>
 							</div>
 							
 							<div class="card-body">
@@ -27,39 +26,39 @@
 									<input type="hidden" th:field="*{id}">
 									
 									<div class="mb-3">
-										<label for="name" th:text="#{name}"></label>
+										<label for="name" th:text="#{task.name}"></label>
 										<input type="text" class="form-control"
 											th:errorclass="is-invalid" th:field="*{name}">
 										<div class="invalid-feedback" th:errors="*{name}"></div>
 									</div>
 									
 									<div class="mb-3">
-										<label for="isFinished" th:text="#{isFinished}"></label>
-										<input type="checkbox" th:field="*{isFinished}">
-									</div>
-									
-									<div class="mb-3">
-										<label for="startDate" th:text="#{startDate}"></label>
+										<label for="startDate" th:text="#{task.startDate}"></label>
 										<input type="date" class="form-control" th:field="*{startDate}">
 									</div>
 									
 									<div class="mb-3">
-										<label for="endDate" th:text="#{endDate}"></label>
+										<label for="endDate" th:text="#{task.endDate}"></label>
 										<input type="date" class="form-control" th:field="*{endDate}">
 									</div>
 									
+									<div class="form-check form-switch mb-3">
+										<label for="isFinished" th:text="#{task.isFinished}" class="form-check-label"></label>
+										<input type="checkbox" th:field="*{isFinished}"
+											role="switch" class="form-check-input">
+									</div>
+									
 									<hr>
+									
 									<button class="btn btn-navy col-4">
 										<i class="bi bi-pencil-square"></i>
-										<label for="save" th:text="#{save}">
+										<label for="save" th:text="#{form.save}">
 									</button>
 								</form>
 							</div>
-							
 						</div>
 					</div>
 				</div>
-				
 			</div>
 		</main>
 	</div>

@@ -23,6 +23,10 @@ public class Task {
 	 * GenerationType.IDENTITY : Webからデータを挿入するときに、データベースとの採番を一致させる
 	 */
 	
+	/*
+	 * modelクラスの変数名はキャメルケースでよいのか？
+	 */
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;

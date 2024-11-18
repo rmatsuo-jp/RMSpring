@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/layout}">
+<head>
+	<meta charset="UTF-8">
+</head>
+
+<body>
+	<div layout:fragment="sidebar"
+		th:replace="~{fragments/sidebar::sidebar}">
+	</div>
+	
+	<main layout:fragment="content"
+		class="offcanvas-outside bg-body bg-body-tertiary">
+		<div class="container-fluid">
+			<div th:replace="~{fragments/sidebar::toggler}">
+			</div>
+			
+			<div class="row">
+				<div class="col">
+					<div class="card shadow">
+						<div class="card-header">
+							<h6 th:text="#{user.loginInfo}"
+								class="text-navy my-2">
+							</h6>
+						</div>
+						
+						<div class="card-body table-responsive">
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th th:text="#{user.loginUser}"></th>
+										<th th:text="#{user.userRole}"></th>
+									</tr>
+								</thead>
+								
+							</table>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		
+	</main>
+	
+</body>
+</html>
