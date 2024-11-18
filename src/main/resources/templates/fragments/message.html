@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+</head>
+
+<body>
+	<div th:fragment="login">
+		<div class="alert alert-danger" th:if="${param.error}">
+			<small th:text="#{errorUserInfo}"></small>
+		</div>
+		
+		<div class="alert alert-success" th:if="${param.register}">
+			<small th:text="#{registerUserInfo}"></small>
+		</div>
+		
+		<div class="alert alert-success" th:if="${param.logout}">
+			<small th:text="#{logout}"></small>
+		</div>
+	</div>
+	
+	<div th:fragment="error">
+		<div class="text-center">
+			<div class="display-1" th:text="${status}"></div>
+			<div class="text-body-secondary mb-4" th:text="${error}"></div>
+			
+			<div th:text="errorPage" class="text-body-secondary"></div>
+			<a th:href="@{/}" th:text="#{toHome}"></a>
+		</div>
+	</div>
+	
+</body>
+</html>

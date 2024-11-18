@@ -17,6 +17,11 @@ import lombok.RequiredArgsConstructor;
 public class TaskController {
 	private final TaskRepository taskRepository;
 	
+	@GetMapping("/login")
+	public String login() {
+		return "login";
+	}
+	
 	@GetMapping("/")
 	public String showList(Model model) {
 		model.addAttribute("tasklist", taskRepository.findAll());

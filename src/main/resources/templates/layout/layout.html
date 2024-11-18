@@ -61,9 +61,11 @@
 		</nav>
 	</div>
 	
-	<!-- 各画面の内容が注入される -->
-	<div layout:fragment="content">
-	</div>
+	<!-- サイドバーの内容が注入される -->
+	<div layout:fragment="sidebar"></div>
+	
+	<!-- コンテンツの内容が注入される -->
+	<div layout:fragment="content"></div>
 	
 	<script th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
 </body>
