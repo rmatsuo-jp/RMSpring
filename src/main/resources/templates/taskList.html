@@ -19,12 +19,12 @@
 					<div class="col">
 						<div class="card shadow">
 							<div class="card-header">
-								<h6 th:text="#{general.showTask}" class="text-navy my-2"></h6>
+								<h6 th:text="#{GENERAL.showTask}" class="text-navy my-2"></h6>
 							</div>
 							
 							<div class="card-body">
 								<div th:if="${tasklist.size() == 0}">
-									<label th:text="#{index.noData}"></label>
+									<label th:text="#{taskList.noData}"></label>
 								</div>
 								
 								<table th:if="${tasklist.size() > 0}" class="table table-bordered">
@@ -33,10 +33,10 @@
 											<th></th>
 											
 											<!--th><label for="id" th:text="#{task.id}"></label></th-->
-											<th><label for="name" th:text="#{task.name}"></label></th>
-											<th><label for="isFinished" th:text="#{task.isFinished}"></label></th>
-											<th><label for="startDate" th:text="#{task.startDate}"></label></th>
-											<th><label for="endDate" th:text="#{task.endDate}"></label></th>
+											<th><label for="name" th:text="#{Task.name}"></label></th>
+											<th><label for="isFinished" th:text="#{Task.isFinished}"></label></th>
+											<th><label for="startDate" th:text="#{Task.startDate}"></label></th>
+											<th><label for="endDate" th:text="#{Task.endDate}"></label></th>
 											
 											<th></th>
 										</tr>
@@ -47,7 +47,7 @@
 											<td>
 												<a th:href="@{/edit/{id}(id=*{id})}" class="btn btn-primary">
 													<i class="bi bi-pencil-square"></i>
-													<label for="edit" th:text="#{index.edit}"></label>
+													<label for="edit" th:text="#{taskList.edit}"></label>
 												</a>
 											</td>
 											
@@ -60,7 +60,7 @@
 											<td>
 												<a th:href="@{/delete/{id}(id=*{id})}" class="btn btn-danger">
 													<i class="bi bi-trash-fill"></i>
-													<label for="delete" th:text="#{index.delete}"></label>
+													<label for="delete" th:text="#{taskList.delete}"></label>
 												</a>
 											</td>
 										</tr>

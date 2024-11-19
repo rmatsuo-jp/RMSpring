@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 	<meta charset="UTF-8">
 </head>
@@ -16,7 +17,7 @@
 			<nav class="bg-primary text-white h-100">
 				<div class="offcanvas-header">
 					<h4 class="offcanvas-title">
-						<a th:href="@{/}" th:text="#{general.applicationName}" class="link-light">
+						<a th:href="@{/}" th:text="#{GENERAL.applicationName}" class="link-light">
 						</a>
 					</h4>
 				</div>
@@ -26,15 +27,23 @@
 					
 					<ul class="navbar-nav">
 						<li class="nav-item">
-							<a th:href="@{/}" th:text="#{general.showTask}" class="nav-link"></a>
+							<a th:href="@{/}" th:text="#{GENERAL.showTask}" class="nav-link"></a>
 						</li>
 						
 						<li class="nav-item">
-							<a th:href="@{/add}" th:text="#{general.registTask}" class="nav-link"></a>
+							<a th:href="@{/add}" th:text="#{GENERAL.registTask}" class="nav-link"></a>
 						</li>
 						
 						<li class="nav-item">
-							<a th:href="@{/logout}" th:text="#{general.logout}" class="nav-link"></a>
+							<a th:href="@{/userInfo}" th:text="#{GENERAL.userInfo}" class="nav-link"></a>
+						</li>
+						
+						<li sec:authorize="hasAuthority('ADMIN')" class="nav-item">
+							<a th:href="@{/userList}" th:text="#{GENERAL.userList}" class="nav-link"></a>
+						</li>
+						
+						<li class="nav-item">
+							<a th:href="@{/logout}" th:text="#{GENERAL.logout}" class="nav-link"></a>
 						</li>
 					</ul>
 					

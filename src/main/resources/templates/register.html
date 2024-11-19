@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/layout}">
+<head>
+<meta charset="UTF-8" th:remove="tag">
+<title>Insert title here</title>
+</head>
+
+<body>
+	<main layout:fragment="content" class="bg-image vh-100">
+		<div class="container pt-4">
+			<div class="row justify-content-center">
+				<div class="card shadow" style="max-width:480px;">
+					<div class="card-body">
+						<h3 th:text="#{register.registUser}" class="card-title mb-3 text-center text-navy"></h3>
+					
+						<form th:action="@{/register}" th:object="${user}" method="post" novalidate>
+							<div class="mb-3">
+								<label for="username" th:text="#{user.username}" class="form-label">
+									<span th:text="#{register}.required}" class="badge bg-danger"></span>
+								</label>
+								
+								<input class="form-control" type="text"
+									th:errorclass="is-invalid" th:field="*{username}">
+								<div class="invalid-feedback" th:errors="*{username}"></div>
+							</div>
+							
+							<div class="mb-3">
+								<label for="password" th:text="#{user.password}" class="form-label">
+									<span th:text="#{register.required}" class="badge bg-danger"></span>
+								</label>
+								
+								<input class="form-control" type="password"
+									th:errorclass="is-invalid" th:field="*{password}">
+								<div class="invalid-feedback" th:errors="*{password}"></div>
+							</div>
+							
+							<div class="mb-3">
+								<label for="email" th:text="#{user.email}" class="form-label">
+									<span th:text="#{register.required}" class="badge bg-danger"></span>
+								</label>
+								
+								<input class="form-control" type="email"
+									th:errorclass="is-invalid" th:field="*{email}">
+								<div class="invalid-feedback" th:errors="*{email}"></div>
+							</div>
+							
+							<div class="mb-3 form-check">
+								<input class="form-check-input" type="checkbox" th:field="*{admin}">
+								<label th:text="#{register.registAsAdmin}"
+									class="form-check-label" th:for="${#ids.prev('admin')}"></label>
+							</div>
+							
+							<button th:text="#{register.regist}" class="w-100 btn btn-navy" type="submit"></button>
+							
+						</form>
+						
+						<hr>
+						
+						<div class="text-center">
+							<a th:href="@{/login}" th:text="#{register.toLogin}" class="text-navy"></a>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+	
+</body>
+</html>

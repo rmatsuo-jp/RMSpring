@@ -11,6 +11,7 @@ import jp.rm.personal.model.SiteUser;
 import jp.rm.personal.model.Task;
 import jp.rm.personal.repository.SiteUserRepository;
 import jp.rm.personal.repository.TaskRepository;
+import jp.rm.personal.util.Authority;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor	//finalフィールドに対してコンストラクタを生成
@@ -30,7 +31,14 @@ public class DataLoader implements ApplicationRunner {
 		var user = new SiteUser();
 		user.setUsername("admin");
 		user.setPassword(passwordEncoder.encode("password"));
-		userRepository.save(user);
+		user.setEmail("admin@example.com");
+		user.setAdmin(true);
+		user.setAuthority(Authority.ADMIN);
+		
+		//ユーザが存在しない場合のみ登録
+		if(userRepository.findByUsername(user.getUsername()).isEmpty()) {
+			userRepository.save(user);
+		}
 		
 		//タスク情報の追加
 		var task = new Task();
