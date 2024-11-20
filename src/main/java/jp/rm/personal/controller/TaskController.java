@@ -39,11 +39,11 @@ public class TaskController {
 	@PostMapping("/register")
 	public String process(@ModelAttribute SiteUser user, BindingResult result) {
 		
-		//以下のコードはサービスクラスに記述したい
 		if(result.hasErrors()) {
 			return "userRegister";
 		}
 		
+		//以下のコードはサービスクラスに記述したい
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		if(user.isAdmin()) {
 			user.setAuthority(Authority.ADMIN);	

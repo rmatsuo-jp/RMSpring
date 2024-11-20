@@ -8,6 +8,7 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Size;
 
 import jp.rm.personal.util.Authority;
+import jp.rm.personal.validator.UniqueLogin;
 import lombok.Data;
 
 @Data
@@ -19,6 +20,7 @@ public class SiteUser {
 	private Long id;
 	
 	@Size(min=2, max=20)
+	@UniqueLogin	//自作バリデーション
 	private String username;
 	
 	@Size(min=4, max=255)
