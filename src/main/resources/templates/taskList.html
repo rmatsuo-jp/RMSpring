@@ -27,17 +27,16 @@
 									<label th:text="#{taskList.noData}"></label>
 								</div>
 								
-								<table th:if="${tasklist.size() > 0}" class="table table-bordered">
+								<table id="user-table"
+									th:if="${tasklist.size() > 0}"
+									class="table table-bordered">
 									<thead>
 										<tr>
 											<th></th>
-											
-											<!--th><label for="id" th:text="#{task.id}"></label></th-->
 											<th><label for="name" th:text="#{Task.name}"></label></th>
 											<th><label for="isFinished" th:text="#{Task.isFinished}"></label></th>
 											<th><label for="startDate" th:text="#{Task.startDate}"></label></th>
 											<th><label for="endDate" th:text="#{Task.endDate}"></label></th>
-											
 											<th></th>
 										</tr>
 									</thead>
@@ -51,7 +50,6 @@
 												</a>
 											</td>
 											
-											<!--td th:text="*{id}"></td-->
 											<td th:text="*{name}"></td>
 											<td th:text="*{isFinished}"></td>
 											<td th:text="*{startDate}"></td>

@@ -13,12 +13,12 @@
 			<div class="row justify-content-center">
 				<div class="card shadow" style="max-width:480px;">
 					<div class="card-body">
-						<h3 th:text="#{register.registUser}" class="card-title mb-3 text-center text-navy"></h3>
+						<h3 th:text="#{userRegister.registUser}" class="card-title mb-3 text-center text-navy"></h3>
 					
 						<form th:action="@{/register}" th:object="${user}" method="post" novalidate>
 							<div class="mb-3">
-								<label for="username" th:text="#{user.username}" class="form-label">
-									<span th:text="#{register}.required}" class="badge bg-danger"></span>
+								<label for="username" th:text="#{SiteUser.username}" class="form-label">
+									<span th:text="#{userRegister.required}" class="badge bg-danger"></span>
 								</label>
 								
 								<input class="form-control" type="text"
@@ -27,8 +27,8 @@
 							</div>
 							
 							<div class="mb-3">
-								<label for="password" th:text="#{user.password}" class="form-label">
-									<span th:text="#{register.required}" class="badge bg-danger"></span>
+								<label for="password" th:text="#{SiteUser.password}" class="form-label">
+									<span th:text="#{userRegister.required}" class="badge bg-danger"></span>
 								</label>
 								
 								<input class="form-control" type="password"
@@ -37,8 +37,8 @@
 							</div>
 							
 							<div class="mb-3">
-								<label for="email" th:text="#{user.email}" class="form-label">
-									<span th:text="#{register.required}" class="badge bg-danger"></span>
+								<label for="email" th:text="#{SiteUser.email}" class="form-label">
+									<span th:text="#{userRegister.required}" class="badge bg-danger"></span>
 								</label>
 								
 								<input class="form-control" type="email"
@@ -48,18 +48,18 @@
 							
 							<div class="mb-3 form-check">
 								<input class="form-check-input" type="checkbox" th:field="*{admin}">
-								<label th:text="#{register.registAsAdmin}"
+								<label th:text="#{userRegister.registAsAdmin}"
 									class="form-check-label" th:for="${#ids.prev('admin')}"></label>
 							</div>
 							
-							<button th:text="#{register.regist}" class="w-100 btn btn-navy" type="submit"></button>
+							<button th:text="#{userRegister.regist}" class="w-100 btn btn-navy" type="submit"></button>
 							
 						</form>
 						
 						<hr>
 						
 						<div class="text-center">
-							<a th:href="@{/login}" th:text="#{register.toLogin}" class="text-navy"></a>
+							<a th:href="@{/login}" th:text="#{userRegister.toLogin}" class="text-navy"></a>
 						</div>
 						
 					</div>

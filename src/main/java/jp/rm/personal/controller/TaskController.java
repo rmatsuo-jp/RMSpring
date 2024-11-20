@@ -28,18 +28,20 @@ public class TaskController {
 	
 	@GetMapping("/login")
 	public String login() {
-		return "login";
+		return "userLogin";
 	}
 	
 	@GetMapping("/register")
 	public String register(@ModelAttribute("user") SiteUser user) {	//("user")を付加しないとエラーが出るのはなぜ？
-		return "register";
+		return "userRegister";
 	}
 	
 	@PostMapping("/register")
 	public String process(@ModelAttribute SiteUser user, BindingResult result) {
+		
+		//以下のコードはサービスクラスに記述したい
 		if(result.hasErrors()) {
-			return "register";
+			return "userRegister";
 		}
 		
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
@@ -50,7 +52,7 @@ public class TaskController {
 		}
 		userRepository.save(user);
 		
-		return "redirect:/login?register";
+		return "redirect:/login?userRegister";
 	}
 	
 	@GetMapping("/")
@@ -92,7 +94,7 @@ public class TaskController {
 	@GetMapping("/edit/{id}")
 	public String editTask(@PathVariable Long id, Model model) {	//@PathVariable:パスの値({id})を変数に格納
 		model.addAttribute("task", taskRepository.findById(id));
-		return "form";
+		return "taskForm";
 	}
 	
 	@GetMapping("/delete/{id}")
