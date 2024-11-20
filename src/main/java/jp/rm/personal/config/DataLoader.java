@@ -16,17 +16,14 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor	//finalフィールドに対してコンストラクタを生成
 @Component					//一般的な構成要素のひとつとしてDIされる
-							//ApplicationRunner : 起動時にrunメソッドを実行
-public class DataLoader implements ApplicationRunner {
+public class DataLoader implements ApplicationRunner {	//ApplicationRunner:起動時にrunメソッドを実行
 	
 	private final PasswordEncoder passwordEncoder;
 	private final SiteUserRepository userRepository;
-	
 	private final TaskRepository taskRepository;
 	
 	@Override
 	public void run(ApplicationArguments args) throws Exception{
-		
 		//ユーザ情報の追加
 		var user = new SiteUser();
 		user.setUsername("admin");

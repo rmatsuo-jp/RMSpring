@@ -5,10 +5,10 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 import jp.rm.personal.util.Authority;
-import jp.rm.personal.validator.UniqueLogin;
 import lombok.Data;
 
 @Data
@@ -19,13 +19,16 @@ public class SiteUser {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@NotBlank
 	@Size(min=2, max=20)
-	@UniqueLogin	//自作バリデーション
+//	@UniqueLogin	//自作バリデーション
 	private String username;
 	
+	@NotBlank
 	@Size(min=4, max=255)
 	private String password;
 	
+	@NotBlank
 	@Email
 	private String email;
 	

@@ -6,11 +6,12 @@
 
 <body>
 	<div th:fragment="login">
-		<div class="alert alert-danger" th:if="${param.error}">
+		<!-- ${param.}:リクエストパラメータを保持する -->
+		<div class="alert alert-danger" th:if="${param.errorRegister}">
 			<small th:text="#{message.errorUserInfo}"></small>
 		</div>
 		
-		<div class="alert alert-success" th:if="${param.register}">
+		<div class="alert alert-success" th:if="${param.successRegister}">
 			<small th:text="#{message.registerUserInfo}"></small>
 		</div>
 		

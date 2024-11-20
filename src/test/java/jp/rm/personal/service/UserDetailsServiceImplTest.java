@@ -14,6 +14,8 @@ import jp.rm.personal.model.SiteUser;
 import jp.rm.personal.repository.SiteUserRepository;
 import jp.rm.personal.util.Authority;
 
+//テストはpublicをつけなくてよい
+
 @SpringBootTest
 @Transactional
 class UserDetailsServiceImplTest {

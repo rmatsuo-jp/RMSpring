@@ -18,6 +18,8 @@ import org.springframework.test.web.servlet.MockMvc;
 import jp.rm.personal.model.SiteUser;
 import jp.rm.personal.util.Authority;
 
+//テストはpublicをつけなくてよい
+
 @SpringBootTest
 @AutoConfigureMockMvc
 @Transactional
@@ -31,10 +33,10 @@ class TaskControllerTest {
 	void whenThereIsRegistrationError_exceptToSeeErrors() throws Exception {
 		
 		mockMvc
-			.perform(
+			.perform(	//リクエストの実行
 				post("/register")
-				.flashAttr("user", new SiteUser())
-				.with(csrf())
+				.flashAttr("user", new SiteUser())	//コントローラに対して値を設定
+				.with(csrf())	//POSTリクエスト時に必要なトークンの自動挿入
 			)
 			
 			.andExpect(model().hasErrors())
@@ -55,7 +57,7 @@ class TaskControllerTest {
 			.flashAttr("user", user).with(csrf())
 		)
 		.andExpect(model().hasNoErrors())
-		.andExpect(redirectedUrl("/login?userRegister"))
+		.andExpect(redirectedUrl("/login?successRegister"))
 		.andExpect(status().isFound());
 	}
 	
@@ -63,10 +65,10 @@ class TaskControllerTest {
 	@DisplayName("管理者ユーザでログインするとき、ユーザ一覧を表示することを期待します")
 	@WithMockUser(username="admin", authorities="ADMIN")
 	void whenLoggedInAsAdminUser_expectToSeeListOfUsers() throws Exception {
-		mockMvc.perform(get("/admin/list"))
+		mockMvc.perform(get("/userList"))
 			.andExpect(status().isOk())
 			.andExpect(content().string(containsString("ユーザ一覧")))
-			.andExpect(view().name("list"));
+			.andExpect(view().name("userList"));
 	}
 
 

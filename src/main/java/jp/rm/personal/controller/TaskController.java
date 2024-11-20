@@ -37,7 +37,7 @@ public class TaskController {
 	}
 	
 	@PostMapping("/register")
-	public String process(@ModelAttribute SiteUser user, BindingResult result) {
+	public String process(@Validated @ModelAttribute("user") SiteUser user, BindingResult result) {
 		
 		if(result.hasErrors()) {
 			return "userRegister";
@@ -52,7 +52,7 @@ public class TaskController {
 		}
 		userRepository.save(user);
 		
-		return "redirect:/login?userRegister";
+		return "redirect:/login?successRegister";
 	}
 	
 	@GetMapping("/")
