@@ -7,12 +7,10 @@
 </head>
 
 <body>
-	<div layout:fragment="sidebar" th:replace="~{fragments/sidebar::sidebar}"></div>
+	<span layout:fragment="header" th:replace="~{fragments/header::header}"></span>
 	
-	<main layout:fragment="content" class="offcanvas-outside bg-body-tertiary vh-100">
+	<main layout:fragment="content" class="vh-100">
 		<div class="container-fluid">
-			<div th:replace="~{fragments/sidebar::toggler}"></div>
-			
 			<div class="row mh-100 align-items-center justify-content-center">
 				<div th:replace="~{fragments/message::error}"></div>
 			</div>

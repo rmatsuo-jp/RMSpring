@@ -25,19 +25,15 @@ public class DataLoader implements ApplicationRunner {	//ApplicationRunner:起�
 	@Override
 	public void run(ApplicationArguments args) throws Exception{
 		//ユーザ情報の追加(ADMIN, USER権限を1アカウントずつ)
-		addUserInfo("admin", "password", Authority.ADMIN);
-		addUserInfo("user", "password", Authority.USER);
+		addUser("admin", "password", Authority.ADMIN);
+		addUser("user", "password", Authority.USER);
 		
-		//タスク情報の追加
-		var task = new Task();
-		task.setName("taskA");
-		task.setIsFinished(false);
-		task.setStartDate(LocalDate.of(1900, 1, 1));
-		task.setEndDate(LocalDate.of(1900, 12, 31));
-		taskRepository.save(task);
+		for(int i=0; i<20; i++) {
+			addTask("task" + i);
+		}
 	}
 	
-	public void addUserInfo(String username, String password, Authority authority) {
+	public void addUser(String username, String password, Authority authority) {
 		var user = new SiteUser();
 		user.setUsername(username);
 		user.setPassword(passwordEncoder.encode(password));
@@ -55,5 +51,15 @@ public class DataLoader implements ApplicationRunner {	//ApplicationRunner:起�
 		if(userRepository.findByUsername(user.getUsername()).isEmpty()) {
 			userRepository.save(user);
 		}
+	}
+	
+	public void addTask(String name) {
+		var task = new Task();
+		task.setName(name);
+		task.setIsFinished(false);
+		task.setStartDate(LocalDate.of(1900, 1, 1));
+		task.setEndDate(LocalDate.of(1900, 12, 31));
+		
+		taskRepository.save(task);
 	}
 }

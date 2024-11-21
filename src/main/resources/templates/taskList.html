@@ -7,69 +7,63 @@
 </head>
 
 <body>
-	<div layout:fragment="sidebar" th:replace="~{fragments/sidebar::sidebar}"></div>
+	<span layout:fragment="header" th:replace="~{fragments/header::header}"></span>
 	
-	<div layout:fragment="content">
-		<main class="offcanvas-outside">
-			<div class="container-fluid">
-				<div th:replace="~{fragments/sidebar::toggler}">
-				</div>
-				
-				<div class="row">
-					<div class="col">
-						<div class="card shadow">
-							<div class="card-header">
-								<h6 th:text="#{GENERAL.showTask}" class="text-navy my-2"></h6>
+	<main layout:fragment="content">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col">
+					<div class="card shadow">
+						<div class="card-header">
+							<h6 th:text="#{GENERAL.showTask}" class="text-navy my-1"></h6>
+						</div>
+						
+						<div class="card-body">
+							<div th:if="${tasklist.size() == 0}">
+								<label th:text="#{taskList.noData}"></label>
 							</div>
 							
-							<div class="card-body">
-								<div th:if="${tasklist.size() == 0}">
-									<label th:text="#{taskList.noData}"></label>
-								</div>
+							<table id="user-table"
+								th:if="${tasklist.size() > 0}"
+								class="table table-bordered table-hover">
+								<thead>
+									<tr>
+										<th th:text="#{Task.id}"></th>
+										<th th:text="#{Task.name}"></th>
+										<th th:text="#{Task.isFinished}"></th>
+										<th th:text="#{Task.startDate}"></th>
+										<th th:text="#{Task.endDate}"></th>
+										<th></th>
+									</tr>
+								</thead>
 								
-								<table id="user-table"
-									th:if="${tasklist.size() > 0}"
-									class="table table-bordered table-hover">
-									<thead>
-										<tr>
-											<th></th>
-											<th><span th:text="#{Task.name}"></span></th>
-											<th><span th:text="#{Task.isFinished}"></label></th>
-											<th><span th:text="#{Task.startDate}"></label></th>
-											<th><span th:text="#{Task.endDate}"></label></th>
-											<th></th>
-										</tr>
-									</thead>
-									
-									<tbody>
-										<tr th:each="task : ${tasklist}" th:object="${task}">
-											<td>
-												<a th:href="@{/edit/{id}(id=*{id})}" class="btn btn-primary">
-													<i class="bi bi-pencil-square"></i>
-													<span th:text="#{taskList.edit}"></span>
-												</a>
-											</td>
+								<tbody>
+									<tr th:each="task : ${tasklist}" th:object="${task}">
+										<td th:text="*{id}"></td>
+										<td th:text="*{name}"></td>
+										<td th:text="*{isFinished}"></td>
+										<td th:text="*{startDate}"></td>
+										<td th:text="*{endDate}"></td>
+										
+										<td>
+											<a th:href="@{/edit/{id}(id=*{id})}" class="btn btn-sm btn-primary">
+												<i class="bi bi-pencil-square"></i>
+												<span th:text="#{taskList.edit}"></span>
+											</a>
 											
-											<td th:text="*{name}"></td>
-											<td th:text="*{isFinished}"></td>
-											<td th:text="*{startDate}"></td>
-											<td th:text="*{endDate}"></td>
-											
-											<td>
-												<a th:href="@{/delete/{id}(id=*{id})}" class="btn btn-danger">
-													<i class="bi bi-trash-fill"></i>
-													<span th:text="#{taskList.delete}"></label>
-												</a>
-											</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
+											<a th:href="@{/delete/{id}(id=*{id})}" class="btn btn-sm btn-outline-danger">
+												<i class="bi bi-trash-fill"></i>
+												<span th:text="#{taskList.delete}"></label>
+											</a>
+										</td>
+									</tr>
+								</tbody>
+							</table>
 						</div>
 					</div>
 				</div>
 			</div>
-		</main>
-	</div>
+		</div>
+	</main>
 </body>
 </html>
