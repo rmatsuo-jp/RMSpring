@@ -84,7 +84,7 @@ public class TaskController {
 		return "userInfo";
 	}
 	
-	@GetMapping("/userList")
+	@GetMapping("/admin/userList")
 	public String showUserList(Model model) {
 		model.addAttribute("users", userRepository.findAll());
 		return "userList";

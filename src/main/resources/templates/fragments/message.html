@@ -1,13 +1,9 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-	<meta charset="UTF-8">
-</head>
-
+<html>
 <body>
 	<div th:fragment="login">
 		<!-- ${param.}:リクエストパラメータを保持する -->
-		<div class="alert alert-danger" th:if="${param.errorRegister}">
+		<div class="alert alert-danger" th:if="${param.error}">
 			<small th:text="#{message.errorUserInfo}"></small>
 		</div>
 		
@@ -29,6 +25,5 @@
 			<a th:href="@{/}" th:text="#{message.toHome}"></a>
 		</div>
 	</div>
-	
 </body>
 </html>

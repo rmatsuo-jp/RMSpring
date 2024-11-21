@@ -16,43 +16,57 @@
 						<h3 th:text="#{userRegister.registUser}" class="card-title mb-3 text-center text-navy"></h3>
 					
 						<form th:action="@{/register}" th:object="${user}" method="post" novalidate>
-							<div class="mb-3">
+							<div class="mb-3 form-floating">
+								<input class="form-control"
+									type="text"
+									th:errorclass="is-invalid"
+									th:field="*{username}"
+									th:placeholder="#{SiteUser.username}">
+								
 								<label for="username" th:text="#{SiteUser.username}" class="form-label">
 									<span th:text="#{userRegister.required}" class="badge bg-danger"></span>
 								</label>
 								
-								<input class="form-control" type="text"
-									th:errorclass="is-invalid" th:field="*{username}">
-								<div class="invalid-feedback" th:errors="*{username}"></div>
+								<span class="invalid-feedback" th:errors="*{username}"></span>
 							</div>
 							
-							<div class="mb-3">
+							<div class="mb-3 form-floating">
+								<input class="form-control"
+									type="password"
+									th:errorclass="is-invalid"
+									th:field="*{password}"
+									th:placeholder="#{SiteUser.password}">
+								
 								<label for="password" th:text="#{SiteUser.password}" class="form-label">
 									<span th:text="#{userRegister.required}" class="badge bg-danger"></span>
 								</label>
 								
-								<input class="form-control" type="password"
-									th:errorclass="is-invalid" th:field="*{password}">
-								<div class="invalid-feedback" th:errors="*{password}"></div>
+								<span class="invalid-feedback" th:errors="*{password}"></span>
 							</div>
 							
-							<div class="mb-3">
+							<div class="mb-3 form-floating">
+								<input class="form-control"
+									type="email"
+									th:errorclass="is-invalid"
+									th:field="*{email}"
+									th:placeholder="#{SiteUser.email}">
+								
+							
 								<label for="email" th:text="#{SiteUser.email}" class="form-label">
 									<span th:text="#{userRegister.required}" class="badge bg-danger"></span>
 								</label>
 								
-								<input class="form-control" type="email"
-									th:errorclass="is-invalid" th:field="*{email}">
-								<div class="invalid-feedback" th:errors="*{email}"></div>
+								<span class="invalid-feedback" th:errors="*{email}"></span>
 							</div>
 							
 							<div class="mb-3 form-check">
 								<input class="form-check-input" type="checkbox" th:field="*{admin}">
 								<label th:text="#{userRegister.registAsAdmin}"
-									class="form-check-label" th:for="${#ids.prev('admin')}"></label>
+									class="form-check-label" th:for="${#ids.prev('admin')}">
+								</label>
 							</div>
 							
-							<button th:text="#{userRegister.regist}" class="w-100 btn btn-navy" type="submit"></button>
+							<button th:text="#{userRegister.regist}" class="w-100 btn btn-primary" type="submit"></button>
 							
 						</form>
 						

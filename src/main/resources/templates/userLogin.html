@@ -7,7 +7,7 @@
 </head>
 
 <body>
-	<main layout:fragment="content" class="bg-primary">
+	<main layout:fragment="content" class="">
 		<div class="container">
 			<div class="row vh-100 align-items-center justify-content-center">
 				<div class="card shadow" style="max-width:480px;">
@@ -19,26 +19,28 @@
 						<div th:replace="~{fragments/message::login}"></div>
 						
 						<form th:action="@{/login}" method="post">
-							<div class="mb-3">
+							<div class="mb-3 form-floating">
 								<input class="form-control" type="text"
-									name="username" placeholder="ユーザ名">
+									id="username" name="username" th:placeholder="#{SiteUser.username}">
+								<label for="username" th:text="#{SiteUser.username}"></label>
 							</div>
 							
-							<div class="mb-3">
+							<div class="mb-3 form-floating">
 								<input class="form-control" type="password"
-									name="password" placeholder="パスワード">
+									id="password" name="password" th:placeholder="#{SiteUser.password}">
+								<label for="password" th:text="#{SiteUser.password}"></span>
 							</div>
 							
-							<div class="mb-3 form-check">
-								<input class="form-check-input" type="checkbox"
-									id="remember-me" name="remember-me">
-							
+							<div class="mb-3 form-check form-switch">
+								<input class="form-check-input" type="checkbox" role="switch"
+									id="remember-me" name="remember-me" checked>
+								
 								<label th:text="#{login.keepLogin}" class="form-check-label"
 									for="remember-me">
 								</label>
 							</div>
 							
-							<button th:text="#{login.login}" class="w-100 btn btn-navy"
+							<button th:text="#{login.login}" class="w-100 btn btn-primary"
 								type="submit">
 							</button>
 						</form>

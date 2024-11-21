@@ -24,18 +24,9 @@ public class DataLoader implements ApplicationRunner {	//ApplicationRunner:起�
 	
 	@Override
 	public void run(ApplicationArguments args) throws Exception{
-		//ユーザ情報の追加
-		var user = new SiteUser();
-		user.setUsername("admin");
-		user.setPassword(passwordEncoder.encode("password"));
-		user.setEmail("admin@example.com");
-		user.setAdmin(true);
-		user.setAuthority(Authority.ADMIN);
-		
-		//ユーザが存在しない場合のみ登録
-		if(userRepository.findByUsername(user.getUsername()).isEmpty()) {
-			userRepository.save(user);
-		}
+		//ユーザ情報の追加(ADMIN, USER権限を1アカウントずつ)
+		addUserInfo("admin", "password", Authority.ADMIN);
+		addUserInfo("user", "password", Authority.USER);
 		
 		//タスク情報の追加
 		var task = new Task();
@@ -44,5 +35,25 @@ public class DataLoader implements ApplicationRunner {	//ApplicationRunner:起�
 		task.setStartDate(LocalDate.of(1900, 1, 1));
 		task.setEndDate(LocalDate.of(1900, 12, 31));
 		taskRepository.save(task);
+	}
+	
+	public void addUserInfo(String username, String password, Authority authority) {
+		var user = new SiteUser();
+		user.setUsername(username);
+		user.setPassword(passwordEncoder.encode(password));
+		user.setEmail(username + "@example.com");
+		
+		if(authority.equals(Authority.ADMIN)) {
+			user.setAdmin(true);
+		}else {
+			user.setAdmin(false);
+		}
+		
+		user.setAuthority(authority);
+		
+		//ユーザが存在しない場合のみ登録
+		if(userRepository.findByUsername(user.getUsername()).isEmpty()) {
+			userRepository.save(user);
+		}
 	}
 }

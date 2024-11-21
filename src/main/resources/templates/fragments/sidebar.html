@@ -1,10 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head>
-	<meta charset="UTF-8">
-</head>
-
+<html>
 <body>
 	<div th:fragment="sidebar">
 		<div class="offcanvas offcanvas-start"
@@ -17,8 +12,8 @@
 			<nav class="bg-primary text-white h-100">
 				<div class="offcanvas-header">
 					<h4 class="offcanvas-title">
-						<a th:href="@{/}" th:text="#{GENERAL.applicationName}" class="link-light">
-						</a>
+						<img th:src="@{/img/task-management-logo.png}" width="25" height="25">
+						<a th:href="@{/}" th:text="#{GENERAL.applicationName}" class="link-light"></a>
 					</h4>
 				</div>
 				
@@ -39,7 +34,7 @@
 						</li>
 						
 						<li sec:authorize="hasAuthority('ADMIN')" class="nav-item">
-							<a th:href="@{/userList}" th:text="#{GENERAL.userList}" class="nav-link"></a>
+							<a th:href="@{/admin/userList}" th:text="#{GENERAL.userList}" class="nav-link"></a>
 						</li>
 						
 						<li class="nav-item">

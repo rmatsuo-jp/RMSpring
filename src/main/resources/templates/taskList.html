@@ -10,7 +10,7 @@
 	<div layout:fragment="sidebar" th:replace="~{fragments/sidebar::sidebar}"></div>
 	
 	<div layout:fragment="content">
-		<main class="offcanvas-outside bg-body-secondary">
+		<main class="offcanvas-outside">
 			<div class="container-fluid">
 				<div th:replace="~{fragments/sidebar::toggler}">
 				</div>
@@ -29,14 +29,14 @@
 								
 								<table id="user-table"
 									th:if="${tasklist.size() > 0}"
-									class="table table-bordered">
+									class="table table-bordered table-hover">
 									<thead>
 										<tr>
 											<th></th>
-											<th><label for="name" th:text="#{Task.name}"></label></th>
-											<th><label for="isFinished" th:text="#{Task.isFinished}"></label></th>
-											<th><label for="startDate" th:text="#{Task.startDate}"></label></th>
-											<th><label for="endDate" th:text="#{Task.endDate}"></label></th>
+											<th><span th:text="#{Task.name}"></span></th>
+											<th><span th:text="#{Task.isFinished}"></label></th>
+											<th><span th:text="#{Task.startDate}"></label></th>
+											<th><span th:text="#{Task.endDate}"></label></th>
 											<th></th>
 										</tr>
 									</thead>
@@ -46,7 +46,7 @@
 											<td>
 												<a th:href="@{/edit/{id}(id=*{id})}" class="btn btn-primary">
 													<i class="bi bi-pencil-square"></i>
-													<label for="edit" th:text="#{taskList.edit}"></label>
+													<span th:text="#{taskList.edit}"></span>
 												</a>
 											</td>
 											
@@ -58,7 +58,7 @@
 											<td>
 												<a th:href="@{/delete/{id}(id=*{id})}" class="btn btn-danger">
 													<i class="bi bi-trash-fill"></i>
-													<label for="delete" th:text="#{taskList.delete}"></label>
+													<span th:text="#{taskList.delete}"></label>
 												</a>
 											</td>
 										</tr>
