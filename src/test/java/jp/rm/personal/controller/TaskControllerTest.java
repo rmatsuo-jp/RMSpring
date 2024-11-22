@@ -65,7 +65,7 @@ class TaskControllerTest {
 	@DisplayName("管理者ユーザでログインするとき、ユーザ一覧を表示することを期待します")
 	@WithMockUser(username="admin", authorities="ADMIN")
 	void whenLoggedInAsAdminUser_expectToSeeListOfUsers() throws Exception {
-		mockMvc.perform(get("/userList"))
+		mockMvc.perform(get("/admin/userList"))
 			.andExpect(status().isOk())
 			.andExpect(content().string(containsString("ユーザ一覧")))
 			.andExpect(view().name("userList"));

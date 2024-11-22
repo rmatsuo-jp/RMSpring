@@ -1,21 +1,19 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorate="~{layout/layout}">
+	layout:decorate="~{layout/mainLayout}">
 <head>
 	<meta charset="UTF-8" th:remove="tag">
 </head>
 
 <body>
-	<span layout:fragment="header" th:replace="~{fragments/header::header}"></span>
-	
 	<main layout:fragment="content">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col">
-					<div class="card shadow">
+					<div class="card">
 						<div class="card-header">
-							<h6 th:text="#{GENERAL.showTask}" class="text-navy my-1"></h6>
+							<h6 th:text="#{GENERAL.showTask}" class="my-1"></h6>
 						</div>
 						
 						<div class="card-body">
@@ -45,7 +43,7 @@
 										<td th:text="*{startDate}"></td>
 										<td th:text="*{endDate}"></td>
 										
-										<td>
+										<td class="d-flex justify-content-evenly">
 											<a th:href="@{/edit/{id}(id=*{id})}" class="btn btn-sm btn-primary">
 												<i class="bi bi-pencil-square"></i>
 												<span th:text="#{taskList.edit}"></span>

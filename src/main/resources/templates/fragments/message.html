@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html>
+<head>
+</head>
+
 <body>
 	<div th:fragment="login">
 		<!-- ${param.}:リクエストパラメータを保持する -->
@@ -19,7 +22,7 @@
 	<div th:fragment="error">
 		<div class="text-center">
 			<div class="display-1" th:text="${status}"></div>
-			<div class="text-body-secondary mb-4" th:text="${error}"></div>
+			<div class="text-body-secondary" th:text="${error}"></div>
 			
 			<div th:text="#{message.errorPage}" class="text-body-secondary"></div>
 			<a th:href="@{/}" th:text="#{message.toHome}"></a>

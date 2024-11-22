@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+	<meta charset="UTF-8">
+	<!-- width=device-widthの場合は、自動的にinitial-scale=1となる -->
+	<meta name="viewport" content="width=device-width initial-scale=1">
+	
+	<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+	<link th:href="@{/webjars/bootstrap-icons/font/bootstrap-icons.css}" rel="stylesheet">
+	<link th:href="@{/css/app.css}" rel="stylesheet">
+	
+	<link th:href="@{/webjars/datatables/css/dataTables.bootstrap5.min.css}" rel="stylesheet">
+	<link th:href="@{/webjars/datatables-buttons/css/buttons.dataTables.min.css}" rel="stylesheet">
+	
+	<title th:text="#{GENERAL.applicationName}"></title>
+</head>
+
+<body>
+	<!-- ヘッダーの内容が注入される -->
+	<div layout:fragment="header" th:replace="~{fragments/header::header}"></div>
+	
+	<!-- コンテンツの内容が注入される -->
+	<div layout:fragment="content"></div>
+	
+	<!-- フッターの内容が注入される -->
+	<div layout:fragment="footer" th:replace="~{fragments/footer::footer}"></div>
+</body>
+
+<script th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/datatables/js/jquery.dataTables.min.js}"></script>
+<script th:src="@{/webjars/datatables/js/dataTables.bootstrap5.min.js}"></script>
+<script th:src="@{/js/usertables.js}"></script>
+<script th:src="@{/webjars/jszip/jszip.min.js}"></script>
+
+</html>

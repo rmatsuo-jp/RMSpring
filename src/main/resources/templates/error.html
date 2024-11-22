@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorate="~{layout/layout}">
+	layout:decorate="~{layout/mainLayout}">
 <head>
 	<meta charset="UTF-8" th:remove="tag">
 </head>
 
 <body>
-	<span layout:fragment="header" th:replace="~{fragments/header::header}"></span>
-	
 	<main layout:fragment="content" class="vh-100">
 		<div class="container-fluid">
-			<div class="row mh-100 align-items-center justify-content-center">
-				<div th:replace="~{fragments/message::error}"></div>
+			<div class="row">
+				<div class="col align-items-center justify-content-center">
+					<div th:replace="~{fragments/message::error}"></div>
+				</div>
 			</div>
 		</div>
 	</main>

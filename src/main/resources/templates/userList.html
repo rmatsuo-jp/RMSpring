@@ -1,21 +1,19 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorate="~{layout/layout}">
+	layout:decorate="~{layout/mainLayout}">
 <head>
 	<meta charset="UTF-8" th:remove="tag">
 </head>
 
 <body>
-	<span layout:fragment="header" th:replace="~{fragments/header::header}"></span>
-	
 	<main layout:fragment="content" class="bg-body-tertiary">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col">
-					<div class="card shadow">
+					<div class="card">
 						<div class="card-header">
-							<h6 th:text="#{GENERAL.userList}" class="text-navy my-2"></h6>
+							<h6 th:text="#{GENERAL.userList}" class="my-1"></h6>
 						</div>
 						
 						<div class="card-body table-responsive">
