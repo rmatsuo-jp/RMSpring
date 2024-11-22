@@ -9,47 +9,45 @@
 <body>
 	<main layout:fragment="content">
 		<div class="container-fluid">
-			<div class="row">
-				<div class="col">
-					<div class="card">
-						<div class="card-header">
-							<h6 th:text="#{GENERAL.registTask}" class="my-1"></h6>
-						</div>
-						
-						<div class="card-body">
-							<form th:action="@{/process}" th:object="${task}" method="post">
-								<input type="hidden" th:field="*{id}">
-								
-								<div class="mb-3">
-									<label for="name" th:text="#{Task.name}"></label>
-									<input type="text" class="form-control"
-										th:errorclass="is-invalid" th:field="*{name}">
-									<div class="invalid-feedback" th:errors="*{name}"></div>
-								</div>
-								
-								<div class="mb-3">
-									<label for="startDate" th:text="#{Task.startDate}"></label>
-									<input type="date" class="form-control" th:field="*{startDate}">
-								</div>
-								
-								<div class="mb-3">
-									<label for="endDate" th:text="#{Task.endDate}"></label>
-									<input type="date" class="form-control" th:field="*{endDate}">
-								</div>
-								
-								<div class="form-check form-switch mb-3">
-									<input type="checkbox" th:field="*{isFinished}" role="switch" class="form-check-input">
-									<label th:for="${#ids.prev('isFinished')}" th:text="#{Task.isFinished}" class="form-check-label"></label>
-								</div>
-								
-								<hr>
-								
-								<button class="btn btn-primary col-4">
-									<i class="bi bi-pencil-square"></i>
-									<span th:text="#{taskForm.save}">
-								</button>
-							</form>
-						</div>
+			<div class="row justify-content-center">
+				<div class="card p-0" style="max-width:480px;">
+					<div class="card-header bg-light">
+						<p th:text="#{GENERAL.registTask}" class="h5 card-title my-1"></p>
+					</div>
+					
+					<div class="card-body">
+						<form th:action="@{/process}" th:object="${task}" method="post">
+							<input type="hidden" th:field="*{id}">
+							
+							<div class="mb-3">
+								<label for="name" th:text="#{Task.name}"></label>
+								<input type="text" class="form-control"
+									th:errorclass="is-invalid" th:field="*{name}">
+								<div class="invalid-feedback" th:errors="*{name}"></div>
+							</div>
+							
+							<div class="mb-3">
+								<label for="startDate" th:text="#{Task.startDate}"></label>
+								<input type="date" class="form-control" th:field="*{startDate}">
+							</div>
+							
+							<div class="mb-3">
+								<label for="endDate" th:text="#{Task.endDate}"></label>
+								<input type="date" class="form-control" th:field="*{endDate}">
+							</div>
+							
+							<div class="form-check form-switch mb-3">
+								<input type="checkbox" th:field="*{isFinished}" role="switch" class="form-check-input">
+								<label th:for="${#ids.prev('isFinished')}" th:text="#{Task.isFinished}" class="form-check-label"></label>
+							</div>
+							
+							<hr>
+							
+							<button class="btn btn-primary col-4" type="submit">
+								<i class="bi bi-pencil-square"></i>
+								<span th:text="#{taskForm.save}">
+							</button>
+						</form>
 					</div>
 				</div>
 			</div>

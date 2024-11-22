@@ -13,15 +13,15 @@
 				<div class="col">
 					<div class="card">
 						<div class="card-header">
-							<h6 th:text="#{GENERAL.userInfo}"class="my-1"></h6>
+							<p th:text="#{GENERAL.userInfo}"class="h5 my-1"></p>
 						</div>
 						
 						<div class="card-body table-responsive">
-							<table class="table table-bordered">
+							<table class="table table-bordered table-hover">
 								<thead>
 									<tr>
-										<th th:text="#{userInfo.loginUser}"></th>
-										<th th:text="#{userInfo.userRole}"></th>
+										<th th:text="#{SiteUser.username}"></th>
+										<th th:text="#{SiteUser.authority}"></th>
 									</tr>
 								</thead>
 								

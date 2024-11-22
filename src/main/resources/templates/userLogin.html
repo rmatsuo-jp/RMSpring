@@ -10,10 +10,12 @@
 	<main layout:fragment="content">
 		<div class="container-fluid">
 			<div class="row vh-100 align-items-center justify-content-center">
-				<div class="card" style="max-width:480px;">
-					<div class="card-body">
-						<h3 th:text="#{GENERAL.applicationName}" class="card-title mb-3 text-center"></h3>
+				<div class="card p-0" style="max-width:480px;">
+					<div class="card-header bg-light">
+						<p th:text="#{GENERAL.applicationName}" class="h3 card-title text-center m-0"></p>
+					</div>
 						
+					<div class="card-body">
 						<div th:replace="~{fragments/message::login}"></div>
 						
 						<form th:action="@{/login}" method="post">
@@ -38,9 +40,7 @@
 								</label>
 							</div>
 							
-							<button th:text="#{login.login}" class="w-100 btn btn-primary"
-								type="submit">
-							</button>
+							<button th:text="#{login.login}" class="w-100 btn btn-primary" type="submit"></button>
 						</form>
 						
 						<hr>
